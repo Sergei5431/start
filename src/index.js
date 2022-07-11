@@ -175,5 +175,20 @@ function insertAfter(elem, refElem){
 sortingA.addEventListener('click', sortA)
 sortingZ.addEventListener('click', sortZ)
 
-// ----------------------------------------------------------------------
+
+const btnColorRed = document.querySelector('.color-red')
+
+
+
+const showRed = () =>{
+    if(btnColorRed.innerHTML.length==0){
+        btnColorRed.innerHTML = '&#10004'
+    }else{
+        btnColorRed.innerHTML =''
+    }
+    
+}
+
+btnColorRed.addEventListener('click', showRed)
+
 
