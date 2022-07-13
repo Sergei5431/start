@@ -268,7 +268,6 @@ function insertAfter(elem, refElem) {
 sortingA.addEventListener('click', sortA)
 sortingZ.addEventListener('click', sortZ)
 
-// ----------------------------------------------------------------------
 
 function chooseColor() {
     const phones = document.querySelectorAll('.card-phone')
@@ -328,15 +327,4 @@ function chooseColor() {
 
 chooseColor()
 
-export default Card
 
-
-class WhatCamera extends Card {
-    log() {
-        console.log(oneCard)
-        console.log('1111111111111111')
-    }
-}
-
-// console.log(oneCard.log())
-// oneCard.log()
