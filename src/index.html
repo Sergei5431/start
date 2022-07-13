@@ -46,9 +46,10 @@
                 </div>
                 <div class="wrapper-filter">
                     <span class="text">Цвет:</span>
-                    <div class="camera color white"></div>
-                    <div class="camera color yellow"></div>
-                    <div class="camera color red"></div>
+                    <button class="camera color-phone color-white" data-color="белый"></button>
+                    <button class="camera color-phone color-yellow" data-color="желтый"></button>
+                    <button class="camera color-phone color-red" data-color="красный"></button>
+                    <button class="camera color-phone color-all" data-color="все">все</button>
                 </div>
                 <!-- <div class="wrapper-filter"> -->
                 <span class="text">Только популярные: <input type="checkbox" name="" id="" ></span> 
@@ -81,12 +82,25 @@
                 
                 <span class="text">Сортировка</span>
                 <div class="wrapper-search-input">
-                    <input placeholder="По названию, от А до Я" type="text" class="input-sorting">
+                    <button class="btn-reset sortingA">По названию, от А до Я</button>
+                    <button class="btn-reset sortingZ">По названию, от Я до А</button>
+                    
+                    <select id="s2">
+                        <option label="По названию" id="s1"></option>
+                        <option value="rise">По названию, от А до Я</option>
+                        
+                        <option value="descent">По названию, от Я до А</option>
+                    </select>
+                    
+                   
+
                 </div>
+
+                
                 
                 <div class="reset-wrapper">
-                    <button class="btn-reset">Сброс фильтров</button>
-                    <button class="btn-reset">Сброс настроек</button>
+                    <button class="btn-reset" id="filter">Сброс фильтров</button>
+                    <button class="btn-reset" id="options">Сброс настроек</button>
                 </div>
             </div>
         </div>
