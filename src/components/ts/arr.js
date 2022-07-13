@@ -6,7 +6,8 @@ const arr = [
         'madeIn': 'Xiaomi',
         'color': 'белый',
         'camera': 3,
-        'popular': 'да'
+        'popular': 'да',
+        'id': 0
     },
     {
         'name': 'Samsung Galaxy A03',
@@ -15,7 +16,8 @@ const arr = [
         'madeIn': 'Samsung',
         'color': 'красный',
         'camera': 2,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 1
     },
     {
         'name': 'Samsung Galaxy S20',
@@ -24,7 +26,8 @@ const arr = [
         'madeIn': 'Samsung',
         'color': 'желтый',
         'camera': 1,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 2
     },
     {
         'name': 'Xiaomi Poco X4 pro',
@@ -33,7 +36,8 @@ const arr = [
         'madeIn': 'Xiaomi',
         'color': 'желтый',
         'camera': 3,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 3
     },
     {
         'name': 'Xiaomi Redmi Note 11',
@@ -42,7 +46,8 @@ const arr = [
         'madeIn': 'Xiaomi',
         'color': 'белый',
         'camera': 1,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 4
     },
     {
         'name': 'Xiaomi Redmi 9C 3/64gb',
@@ -51,7 +56,8 @@ const arr = [
         'madeIn': 'Xiaomi',
         'color': 'красный',
         'camera': 2,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 5
     },
     {
         'name': 'Apple iPhone 11',
@@ -60,7 +66,8 @@ const arr = [
         'madeIn': 'Apple',
         'color': 'белый',
         'camera': 2,
-        'popular': 'да'
+        'popular': 'да',
+        'id': 6
     },
     {
         'name': 'Apple iPhone 13',
@@ -69,7 +76,8 @@ const arr = [
         'madeIn': 'Apple',
         'color': 'красный',
         'camera': 2,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 7
     },
     {
         'name': 'Apple iPhone 12',
@@ -78,7 +86,8 @@ const arr = [
         'madeIn': 'Apple',
         'color': 'желтый',
         'camera': 2,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 8
     },
     {
         'name': 'Apple iPhone SE',
@@ -87,7 +96,8 @@ const arr = [
         'madeIn': 'Apple',
         'color': 'белый',
         'camera': 1,
-        'popular': 'нет'
+        'popular': 'нет',
+        'id': 9
     },
 ]
 
