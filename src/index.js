@@ -88,7 +88,7 @@ class Cards extends Card {
         arr.forEach(el => {
             const oneCard = new Card(...Object.values(el))
             oneCard.setCard()
-            oneCard.age
+            
         })
     }
 
