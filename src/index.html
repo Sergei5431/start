@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./components/range/nouislider.min.css">
+    
+    <!-- <link rel="stylesheet" href="./global.css"> -->
     <title>Online-Store</title>
 </head>
 
@@ -22,7 +25,7 @@
                 <div class="cart-buy">
                     <div class="cart-number">0</div>
                     <img src="./components/assets/cart-buy-svg.svg" alt="cart" width="100">
-                    
+
                 </div>
             </div>
         </div>
@@ -33,16 +36,19 @@
             <div class="filter-container">
                 <h3 class="filter-title">Фильтры по значению</h3>
                 <div class="wrapper-filter">
-                <span class="text">Производитель: </span>
-                    <a href="#"><img src="./components/assets/samsung.jpg" alt="samsung" width="50"></a>
-                    <a href="#"><img src="./components/assets/apple.png" alt="apple" width="50"></a>
-                    <a href="#"><img src="./components/assets/mi.jpg" alt="mi" width="50"></a>
+                    <span class="text">Производитель: </span>
+                    <div class="made" data-company="Samsung"><img class="made-img" src="./components/assets/samsung.jpg"
+                            alt="samsung" width="50"></div>
+                    <div class="made" data-company="Apple"><img class="made-img" src="./components/assets/apple.png"
+                            alt="apple" width="50"></div>
+                    <div class="made" data-company="Xiaomi"><img class="made-img" src="./components/assets/mi.jpg"
+                            alt="mi" width="50"></div>
                 </div>
                 <div class="wrapper-filter">
                     <span class="text">Количество камер:</span>
-                    <div class="camera">1</div>
-                    <div class="camera">2</div>
-                    <div class="camera">3</div>
+                    <div class="camera how-camera" data-how="1">1</div>
+                    <div class="camera how-camera" data-how="2">2</div>
+                    <div class="camera how-camera" data-how="3">3</div>
                 </div>
                 <div class="wrapper-filter">
                     <span class="text">Цвет:</span>
@@ -51,53 +57,55 @@
                     <button class="camera color-phone color-red" data-color="красный"></button>
                     <button class="camera color-phone color-all" data-color="все">все</button>
                 </div>
-                <!-- <div class="wrapper-filter"> -->
-                <span class="text">Только популярные: <input type="checkbox" name="" id="" ></span> 
-            <!-- </div> -->
+                <div class="popular-wrapper">Только популярные:
+                    <div class="camera popular-bird" data-popular="true"></div>
+                </div>
             </div>
             <div class="filter-container">
                 <h3 class="filter-title">Фильтры по значению</h3>
                 <span class="text">Количество на складе:</span>
                 <div class="what-store">
                     <div class="what" data-name1="1">1</div>
-                    <div class="what" data-name2="2">2</div>
-                    <div class="what" data-name3="3">3</div>
-                    <div class="what" data-name4="4">4</div>
+                    <div class="range-wrapper">
+                        <div class="range-wrap-num">1</div>
+                        <input type="range" class="range-number" min="1" max="5" value="1">
+                        <!-- <input type="range" class="range-number" min="1" max="5" value="5"> -->
+                    </div>
                     <div class="what" data-name5="5">5</div>
+
+                    
                 </div>
-                <span class="text">Год выхода на рынок:</span>
+
                 <div class="what-store">
-                    <div class="what" data-age1="1">2018</div>
-                    <div class="what" data-age2="2">2019</div>
-                    <div class="what" data-age3="3">2020</div>
-                    <div class="what" data-age4="4">2021</div>
-                    <div class="what" data-age5="5">2022</div>
+                    <div class="what" data-name1="1" id="btn0">2018</div>
+                    <div class="range-wrapper" id="slider">
+                        <!-- <label class="label" >
+                        <div class="range-wrap-num">1</div>
+                        <input type="range" class="range-number" min="1" max="5" value="1" id="input-1">
+                    </label>
+                        <label class="label">
+                        <input type="range" class="range-number" min="1" max="5" value="5" id="input-2">
+                    </label> -->
+                    </div>
+                    <div class="what" data-name5="5" id="btn1">2022</div>
+
+                    
                 </div>
+
             </div>
             <div class="filter-container">
                 <span class="text">Поиск</span>
                 <div class="wrapper-search-input">
-                    <input placeholder="Введите текст" type="text" class="input-sorting input-decoration">
+                    <input placeholder="Введите текст" type="text" class="input-sorting input-decoration" id="elastic"
+                        autofocus>
                 </div>
-                
+
                 <span class="text">Сортировка</span>
                 <div class="wrapper-search-input">
                     <button class="btn-reset sortingA">По названию, от А до Я</button>
                     <button class="btn-reset sortingZ">По названию, от Я до А</button>
-                    
-                    <select id="s2">
-                        <option label="По названию" id="s1"></option>
-                        <option value="rise">По названию, от А до Я</option>
-                        
-                        <option value="descent">По названию, от Я до А</option>
-                    </select>
-                    
-                   
-
                 </div>
 
-                
-                
                 <div class="reset-wrapper">
                     <button class="btn-reset" id="filter">Сброс фильтров</button>
                     <button class="btn-reset" id="options">Сброс настроек</button>
@@ -105,35 +113,22 @@
             </div>
         </div>
     </main>
-
     <div class="container-card">
-        <!-- <div class="card-phone">
-            <h4 class="text-h4">Apple iPhone 11</h4>
-            <div class="img-wrapper">
-                <img src="./components/assets/1.png" alt="png" width="100">
-            </div>
-            <ul>
-                <li class="funcshion">`Цвет: ${}`</li>
-                <li class="funcshion">`Год выхода: ${}`</li>
-                <li class="funcshion">`Производитель: ${}`</li>
-                <li class="funcshion">`Цвет: ${}`</li>
-                <li class="funcshion">`Количество: ${}`</li>
-                <li class="funcshion">`Популярный: ${}`</li>
-            </ul>
-        </div> -->
     </div>
-
     <footer class="footer">
         <div class="header-wrapper ">
             <div class="header-wrapper-content for-footer">
-            <a href="https://github.com/Sergei5431" class="link"><img src="./components/assets/github_original_wordmark_logo_icon_146506.png" alt="github" width="35px"></a>
-             <span class="text"> 2022</span>   
-            <a href="https://rs.school/js/" class="link"><img src="./components/assets/rs_school_js.svg" alt="rs_school_js" width="100px"></a>
-                <!-- <img src="./components/assets/rs_school_js.svg" alt=""> -->
+                <a href="https://github.com/Sergei5431" class="link"><img
+                        src="./components/assets/github_original_wordmark_logo_icon_146506.png" alt="github"
+                        width="35px"></a>
+                <span class="text"> 2022</span>
+                <a href="https://rs.school/js/" class="link"><img src="./components/assets/rs_school_js.svg"
+                        alt="rs_school_js" width="100px"></a>
+            </div>
         </div>
-    </div>
     </footer>
-   
+    <script src="./components/range/nouislider.min.js"></script>
+    <script src="./components/ts/range-clider.js"></script>
     <script type="module" src="./index.js"></script>
 </body>
 

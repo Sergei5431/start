@@ -1,44 +1,11 @@
 // import './global.css';
 import arr from './components/ts/arr.js';
-
-
-// class Card {
-//     // constructor(amount, age, madeIn, color, camera,popular){
-//     // constructor(aamount){
-//     //     this aamount = amount
-//     // }
-//     setCard() {
-//         for (let i = 0; i < arr.length; i++) {
-//             let card = document.createElement('div');
-//             card.classList.add('card-phone');
-//             card.setAttribute('data-number', `${i+1}`)
-//             card.setAttribute('data-letter', `${i}`)
-//             card.insertAdjacentHTML('afterbegin',
-//                 `
-//             <h4 class="text-h4">${arr[i].name}</h4>
-//             <div class="img-wrapper">
-//                 <img src="./components/assets/${i + 1}.png" alt="png" width="100">
-//             </div>
-//             <ul>
-//                 <li class="funcshion amount" data-amountThis="${arr[i].amount}">Количеств: ${arr[i].amount}</li>
-//                 <li class="funcshion age">Год выхода: ${arr[i].age}</li>
-//                 <li class="funcshion madeIn">Производитель: ${arr[i].madeIn}</li>
-//                 <li class="funcshion color" data-colorthis="${arr[i].color}">Цвет: ${arr[i].color}</li>
-//                 <li class="funcshion cAmera">Количество камер: ${arr[i].camera}</li>
-//                 <li class="funcshion popular">Популярный: ${arr[i].popular}</li>
-//             </ul>
-//             `)
-//             document.querySelector('.container-card').append(card)
-//         }
-//     }
-// }
-
-// let allCard = new Card(arr)
-// allCard.setCard()
-
-// ====================================================
-
-// как получить Card.name ???
+import WhatCamera from './components/ts/whatCamera.js'
+import Popular from './components/ts/popular.js'
+import MadeIn from './components/ts/madeIn.js'
+import LifeSearch from './components/ts/lifeSearch.js'
+import {Range} from './components/ts/range.js'
+import {deleteFilter} from './components/ts/resetFilters.js'
 
 class Card {
     constructor(name, amount, age, madeIn, color, camera, popular, id) {
@@ -51,32 +18,33 @@ class Card {
         this.popular = popular;
         this.id = id
     }
-    setCard() {
 
+    setCard() {
         let card = document.createElement('div');
         card.classList.add('card-phone');
         card.setAttribute('data-number', `${this.id + 1}`)
         card.setAttribute('data-letter', `${this.id}`)
         card.insertAdjacentHTML('afterbegin',
             `
-            <h4 class="text-h4">${this.name}</h4>
+            <h4 class="text-h4" data-namethis="${this.name}">${this.name}</h4>
             <div class="img-wrapper">
                 <img src="./components/assets/${this.id + 1}.png" alt="png" height="100">
             </div>
             <ul>
-                <li class="funcshion amount" data-amountThis="${this.amount}">Количеств: ${this.amount}</li>
-                <li class="funcshion age">Год выхода: ${this.age}</li>
-                <li class="funcshion madeIn">Производитель: ${this.madeIn}</li>
+                <li class="funcshion amount" data-amountthis="${this.amount}">Количеств: ${this.amount}</li>
+                <li class="funcshion age" data-agethis="${this.age}">Год выхода: ${this.age}</li>
+                <li class="funcshion madeIn" data-companythis="${this.madeIn}">Производитель: ${this.madeIn}</li>
                 <li class="funcshion color" data-colorthis="${this.color}">Цвет: ${this.color}</li>
-                <li class="funcshion cAmera">Количество камер: ${this.camera}</li>
-                <li class="funcshion popular">Популярный: ${this.popular}</li>
+                <li class="funcshion cAmera" data-cameraThis="${this.camera}">Количество камер: ${this.camera}</li>
+                <li class="funcshion popular" data-popularThis="${this.popular}">Популярный: ${this.popular}</li>
             </ul>
             `)
         document.querySelector('.container-card').append(card)
     }
 
-    log() {
-        console.log('qq')
+    logCard() {
+        console.log('вывод log')
+        console.log(this.age)
     }
 }
 
@@ -85,43 +53,17 @@ class Cards extends Card {
         super(name, amount, age, madeIn, color, camera, popular, id);
     }
     createCatalog() {
+        // let oneCard
         arr.forEach(el => {
-            const oneCard = new Card(...Object.values(el))
+            let oneCard = new Card(...Object.values(el))
             oneCard.setCard()
             
         })
     }
-
-    oo(){
-        console.log(this.age)
-        console.log(qq.age)
-        // console.log(oneCard.age)
-    }
 }
 
-const qq = new Cards()
-qq.createCatalog()
-qq.log()
-qq.oo()
-
-console.log(qq.age)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const showCars = new Cards()
+showCars.createCatalog()
 
 // ========================================================
 
@@ -140,12 +82,11 @@ if (typeof readAmounsPhone === 'object') {
 }
 // ---------------------------------------------------------------
 const cardDivs = document.querySelectorAll('.card-phone')
-console.log(cardDivs)
+// console.log(cardDivs)
 // ---------------------------------------------------------------------
 let readLoc = localStorage.getItem('arrLocalRibbon')
-console.log(readLoc)
-console.log(typeof readLoc)
-// let arrLocalRibbon1=[]
+// console.log(readLoc)
+// console.log(typeof readLoc)
 let arrLocalRibbon
 if (typeof readLoc === 'object') {
     arrLocalRibbon = []
@@ -153,7 +94,7 @@ if (typeof readLoc === 'object') {
     arrLocalRibbon = [].concat(JSON.parse(readLoc))
 }
 // ------------------------------------------------------------
-console.log(arrLocalRibbon)
+// console.log(arrLocalRibbon)
 const whereClick = (e) => {
     if (e.currentTarget.className == 'card-phone') {
         if (e.currentTarget.querySelector('.ribbon')) {
@@ -172,8 +113,7 @@ const whereClick = (e) => {
             let ribbon = document.createElement('div');
             ribbon.classList.add('ribbon')
             e.currentTarget.append(ribbon)
-            // let localRibbon = localStorage.setItem('localRibbon', JSON.stringify(e.currentTarget))
-            let localRibbon = e.currentTarget.dataset.number
+                        let localRibbon = e.currentTarget.dataset.number
             arrLocalRibbon.push(+localRibbon)
             localStorage.setItem('arrLocalRibbon', JSON.stringify(arrLocalRibbon))
             cartNum++
@@ -186,7 +126,7 @@ const whereClick = (e) => {
 }
 cardDivs.forEach(el => { el.addEventListener('click', whereClick) })
 
-console.log(localStorage.getItem('arrLocalRibbon'))
+// console.log(localStorage.getItem('arrLocalRibbon'))
 
 let amoundPhone = localStorage.getItem('amoundPhone')
 cart.innerHTML = +amoundPhone
@@ -194,24 +134,24 @@ cart.innerHTML = +amoundPhone
 // ---------------------------------------------------------------
 let readArrLocalRibbon = localStorage.getItem('arrLocalRibbon')
 // console.log(readArrLocalRibbon.length)
-console.log(readArrLocalRibbon)
-console.log(JSON.parse(readArrLocalRibbon))
+// console.log(readArrLocalRibbon)
+// console.log(JSON.parse(readArrLocalRibbon))
 // let element = document.querySelector(`[data-number=${localRibbon}]`)
 // let element = document.querySelector(`[data-number='2']`)
 // console.log(element)
 function addRibbon(e) {
-    // console.log(e.length)
-    console.log(typeof e)
+        // console.log(typeof e)
     // if(typeof e !=='object'){
+        try{
     for (let i = 0; i < e.length; i++) {
         let ribbon = document.createElement('div');
         ribbon.classList.add('ribbon')
         document.querySelector(`[data-number='${e[i]}']`).append(ribbon)
         // }
     }
-    // let ribbon = document.createElement('div');
-    // ribbon.classList.add('ribbon')
-    // e.append(ribbon)
+}catch(err){
+    console.log('ошибка index.js')
+}   
 }
 
 addRibbon(JSON.parse(readArrLocalRibbon))
@@ -224,7 +164,7 @@ addRibbon(JSON.parse(readArrLocalRibbon))
 // кнопка сброс настроек 
 const resetOptions = document.querySelector('#options')
 // const resetOptions1 = document.querySelector('.card-phone')
-console.log(resetOptions);
+// console.log(resetOptions);
 // console.log(resetOptions1)
 const deleteOptions = () => {
     localStorage.removeItem('arrLocalRibbon')
@@ -277,9 +217,9 @@ function chooseColor() {
 
     function filter(currentColor, items) {
         items.forEach(item => {
-            console.log(item.dataset)
-            console.log(item.dataset.colorthis)
-            console.log(currentColor);
+            // console.log(item.dataset)
+            // console.log(item.dataset.colorthis)
+            // console.log(currentColor);
             const isShowAll = currentColor === 'все'
             if (item.dataset.colorthis !== currentColor && !isShowAll) {
                 item.parentNode.parentNode.classList.add('anime')
@@ -291,28 +231,17 @@ function chooseColor() {
         })
     }
 
-
-
     btnColor.forEach(e => {
         e.addEventListener('click', () => {
-            console.log(e.innerHTML.length);
+            // console.log(e.innerHTML.length);
             if (e.innerHTML.length === 0) {
                 e.innerHTML = '&#10004'
                 let currentColor = e.dataset.color
                 filter(currentColor, datasetColor)
             } else {
-
                 e.innerHTML = ''
-                // if(e.dataset.colorthis==currentColor){
-                //     e.parentNode.parentNode.classList.remove('hide')
-                // e.parentNode.parentNode.classList.remove('anime')
-                // }
-
-
-            }
-            // let currentColor = e.dataset.color
-            // filter(currentColor, datasetColor)
-            // console.log(e.dataset.color)
+                       }
+            
         })
     })
 
@@ -328,15 +257,25 @@ function chooseColor() {
 
 chooseColor()
 
-export default Card
 
+// export default Card
+// export default Cards
 
-class WhatCamera extends Card {
-    log() {
-        console.log(oneCard)
-        console.log('1111111111111111')
-    }
-}
-
-// console.log(oneCard.log())
-// oneCard.log()
+// ------------------------------------------------------------
+const ooo = new WhatCamera()
+ooo.click()
+// ----------------------------------------
+const www = new Popular()
+www.showPopular()
+// ------------------------------------
+const made = new MadeIn()
+made.clickMadeIn()
+// ------------------------------------
+const search = new LifeSearch()
+search.inputSearch()
+// -----------------------------------------
+const oneRange = new Range()
+oneRange.connect()
+// --------------------------------------------
+const del = new deleteFilter()
+del.resetFilter()

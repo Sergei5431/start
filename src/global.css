@@ -9,10 +9,11 @@ body {
     color: #fff;
     background-image: url(./components/assets/background.jpeg);
     /* background: url(./components/assets/background.jpeg) center center no-repeat fixed; */
-    /* background-color: rgb(80, 25, 25); */
+    /* background-image: url(./components/assets/bangraund_black.jpg); */
     /* background: url(https://image.shutterstock.com/image-photo/background-image-lush-grass-field-600w-120120364.jpg); */
-    font-family: sans-serif;
-    background-size: 100%;
+/*     
+    /* font-family: sans-serif;
+    background-size: 100%; */ 
     
 }
 
@@ -42,6 +43,15 @@ justify-content: space-between;
 
 }
 
+.popular-wrapper{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+
+.made{
+    cursor: pointer;margin-right: 10px;
+}
 
 .cart-buy{
     display: flex;
@@ -114,6 +124,7 @@ margin-left: 10px;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 
@@ -131,8 +142,10 @@ margin-left: 10px;
     }
 
 .what-store{
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
     
 .what{
@@ -144,6 +157,7 @@ margin-left: 10px;
     border-radius: 20px;
     border: 2px solid white;
     margin: 10px;
+    margin-top: 40px;
     }
 
 .what:hover{
@@ -306,7 +320,86 @@ border: 7px solid red;
     animation-name: hide;
     animation-duration: .5s;/*время анимации*/
     animation-fill-mode: forwards; /*остановиться на последнем кадре*/
+    border: 0px solid red;
 }
+
+.popular-bird{
+    width: 25px;
+    height: 25px;
+    border-radius: 5px; 
+    }
+
+.made-img{
+    transition: 1s;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    height: 30px;
+}
+
+.made-img:hover{
+    transform: scale(1.1);
+    
+}
+
+.active{
+    display: flex;
+    overflow: hidden;
+    opacity: 0.8;
+    border: 2px solid red;
+    border-radius: 10px;
+
+}
+
+
+.range-number{
+    width: 250px;
+    
+}
+
+.range-wrapper{
+    width: 252px;
+    height: 50px;
+    /* border: 1px solid red; */
+    position: relative;
+}
+
+.range-wrapper>input[type="range"]{
+position: absolute;
+bottom: 0;
+left: 0;
+}
+
+.range-wrap-num{
+    
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    background-color: rgb(108, 108, 108);
+    position: absolute;
+    left: 0px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+
+
+/* /* .noUi-base{
+    background-color: #fff;
+    height: 1px;
+    border: none;
+    
+} */
+
+/* .noUi-touch-area::after,
+.noUi-touch-area::before {
+    display: none;
+}  */
+
+
+
 
 @keyframes hide{
     0% {
